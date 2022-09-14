@@ -43,4 +43,24 @@ public class ProductDAO {
             throw new DAOException("レコードの取得に失敗しました。");
         }
     }
+
+    public ProductBean findById(int id) throws DAOException {
+        String sql = "SELECT * FROM product WHERE id = ?";
+        try (Connection con = DriverManager.getConnection(url, user, password);
+                PreparedStatement st = con.prepareStatement(sql)) {
+            st.setInt(1, id);
+            try (ResultSet rs = st.executeQuery()) {
+                if (rs.next()) {
+                    String name = rs.getString("name");
+                    int price = rs.getInt("price");
+                    return new ProductBean(id, name, price);
+                } else {
+                    return null;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DAOException("レコードの取得に失敗しました。");
+        }
+    }
 }
