@@ -14,8 +14,8 @@ import com.homework.javaec.bean.ProductBean;
 import com.homework.javaec.dao.DAOException;
 import com.homework.javaec.dao.ProductDAO;
 
-@WebServlet("/ProductServlet")
-public class ProductServlet extends HttpServlet {
+@WebServlet("/showProductServlet")
+public class showProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             ProductDAO dao = new ProductDAO();
