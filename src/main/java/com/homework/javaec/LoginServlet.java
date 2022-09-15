@@ -21,13 +21,14 @@ public class LoginServlet extends HttpServlet {
             if (action == null) {
                 gotoPage(request, response, "/login.jsp");
             } else if (action.equals("login")) {
-                String login = request.getParameter("login");
+                String login = request.getParameter("username");
                 String password = request.getParameter("password");
                 CustomerDAO dao = new CustomerDAO();
                 if (dao.check(login, password)) {
                     HttpSession session = request.getSession(true);
                     session.setAttribute("login", login);
-                    gotoPage(request, response, "/index.jsp");
+                    request.setAttribute("message", "ログインしました。");
+                    gotoPage(request, response, "/showProduct.jsp");
                 } else {
                     request.setAttribute("message", "ログインに失敗しました。");
                     gotoPage(request, response, "/login.jsp");
