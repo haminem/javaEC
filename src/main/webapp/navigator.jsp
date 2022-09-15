@@ -3,3 +3,4 @@
 
 <a href="showProductServlet">商品一覧</a>
 <a href="CartServlet">カート</a>
+<a href="LoginServlet">ログイン</a>
