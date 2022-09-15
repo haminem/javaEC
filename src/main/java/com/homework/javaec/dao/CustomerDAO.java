@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CustomerDAO {
+    private final String url = "jdbc:postgresql://localhost:5432/postgres";
+    private final String user = "postgres";
+    private final String password = "postgres";
 
     public CustomerDAO() throws DAOException {
         try {
@@ -17,14 +20,12 @@ public class CustomerDAO {
         }
     }
 
-    public boolean check(String login, String password) throws DAOException {
+    public boolean check(String login, String pass) throws DAOException {
         String sql = "SELECT * FROM customer WHERE login = ? AND password = ?";
-        String url = "jdbc:postgresql://localhost:5432/postgres";
-        String user = "postgres";
         try (Connection con = DriverManager.getConnection(url, user, password);
              PreparedStatement st = con.prepareStatement(sql)) {
             st.setString(1, login);
-            st.setString(2, password);
+            st.setString(2, pass);
             try (ResultSet rs = st.executeQuery()) {
                 return rs.next();
             }
@@ -33,4 +34,5 @@ public class CustomerDAO {
             throw new DAOException("レコードの取得に失敗しました。");
         }
     }
+
 }
