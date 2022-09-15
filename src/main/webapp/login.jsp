@@ -5,6 +5,7 @@
     <title>ログイン</title>
 </head>
 <body>
+    <jsp:include page="navigator.jsp" />
     <h1>ログイン</h1>
     <form action="LoginServlet?action=login" method="post">
         <table>
