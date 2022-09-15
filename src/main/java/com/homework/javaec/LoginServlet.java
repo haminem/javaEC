@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
                     HttpSession session = request.getSession(true);
                     session.setAttribute("login", login);
                     request.setAttribute("message", "ログインしました。");
-                    gotoPage(request, response, "/showProduct.jsp");
+                    gotoPage(request, response, "/showProductServlet");
                 } else {
                     request.setAttribute("message", "ログインに失敗しました。");
                     gotoPage(request, response, "/login.jsp");
