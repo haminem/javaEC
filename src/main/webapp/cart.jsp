@@ -6,6 +6,7 @@
 </head>
 <body>
     <jsp:include page="navigator.jsp" />
+    <h1>カート</h1>
     <c:if test="${empty cart.items}">
         カートに商品はありません。
     </c:if>
