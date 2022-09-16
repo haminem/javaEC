@@ -8,3 +8,7 @@
 <a href="LoginServlet">ログイン</a>
 <br>
 <a href="LogoutServlet">ログアウト</a>
+<br>
+<a href="PurchaseServlet">購入</a>
+<hr>
+<br>

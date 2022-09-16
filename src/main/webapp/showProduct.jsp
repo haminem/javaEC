@@ -9,7 +9,6 @@
 </head>
 <body>
     <jsp:include page="/navigator.jsp" />
-    <hr>
     <h1>商品ページ</h1>
     <table>
         <tr>
