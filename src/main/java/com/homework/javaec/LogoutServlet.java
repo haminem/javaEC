@@ -22,7 +22,7 @@ public class LogoutServlet extends HttpServlet {
                 session.invalidate();
             }
             request.setAttribute("message", "ログアウトしました。");
-            gotoPage(request, response, "/logout.jsp");
+            gotoPage(request, response, "/login.jsp");
         }
     }
 
