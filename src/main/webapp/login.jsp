@@ -7,6 +7,7 @@
 <body>
     <jsp:include page="navigator.jsp" />
     <h1>ログイン</h1>
+<c:if test="${empty sessionScope.login}">
     <form action="LoginServlet?action=login" method="post">
         <table>
             <tr>
@@ -23,5 +24,12 @@
         </table>
         <p>${message}</p>
     </form>
+</c:if>
+<c:if test="${not empty sessionScope.login}">
+    <p>ログイン中</p>
+    <form action="logout.jsp" method="post">
+        <input type="submit" value="ログアウト" />
+    </form>
+</c:if>
 </body>
 </html>
