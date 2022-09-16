@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartBean {
-    private final List<ProductBean> items = new ArrayList<>();
+    private List<ProductBean> items = new ArrayList<ProductBean>();
 
     public CartBean() {
+    }
+
+    public List<ProductBean> getItems() {
+        return items;
     }
 
     public void addCart(ProductBean product) {
